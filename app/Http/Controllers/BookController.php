@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
@@ -56,7 +57,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         if($request->hasFile('image')) {
             $file = $request->file('image');

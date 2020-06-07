@@ -15,8 +15,9 @@
                             <div class="input-field col s6">
                                 <input id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
                                 <label for="name">Nombre</label>
+                                {!! $errors->first('name', '<span class="help-block red-text">:message</span>') !!}
+
                             </div>
-                            {!! $errors->first('name', '<span class="help-block red-text">:message</span>') !!}
 
                             {{-- Author --}}
                             <div class="input-field col s6">
@@ -29,7 +30,7 @@
                         {{-- Description --}}
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="description" class="materialize-textarea {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
+                                <textarea data-length="2500" id="description" class="materialize-textarea validate {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
                                 <label for="description">Descripción</label>
                             </div>
                             {!! $errors->first('description', '<span class="help-block red-text">:message</span>') !!}
@@ -44,8 +45,8 @@
                                         <option value="{{$option->id}}" @if ($category === $option->id) selected='selected' @endif>{{$option->name}}</option>
                                     @endforeach
                                 </select>
+                                {!! $errors->first('category', '<span class="help-block red-text">:message</span>') !!}
                             </div>
-                            {!! $errors->first('priority', '<span class="help-block red-text">:message</span>') !!}
 
                             {{-- Imagen --}}
                             <div class="col s6">
@@ -97,4 +98,9 @@
             </div>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{{asset('js/forms.js')}}"></script>
 @endsection

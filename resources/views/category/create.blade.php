@@ -23,7 +23,7 @@
                             {{-- Description --}}
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="description" class="materialize-textarea {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
+                                    <textarea data-length="255" id="description" class="materialize-textarea {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
                                     <label for="description">Descripción</label>
                                 </div>
                                 {!! $errors->first('description', '<span class="help-block red-text">:message</span>') !!}
@@ -73,4 +73,9 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{{asset('js/forms.js')}}"></script>
 @endsection

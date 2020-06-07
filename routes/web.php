@@ -67,7 +67,7 @@ Route::get('/statistics', function(){
 // Login
 Route::get('/login', function() {
     if(Auth::check()) {
-        return 'Ya estas logeado';
+        return redirect('/');
     } else {
         return view('auth.login');
     }
@@ -79,7 +79,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 // Register
 Route::get('/register', function() {
     if(Auth::check()) {
-        return 'Actualmente ya estas registrado';
+        return redirect('/');
     } else {
         return view('auth.register');
     }

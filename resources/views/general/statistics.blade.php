@@ -14,6 +14,7 @@
         var data = google.visualization.arrayToDataTable(analytics);
 
         var options = {
+            title: 'Cantidad de libros por categoria',
             width: 1000,
             height: 1000
         };

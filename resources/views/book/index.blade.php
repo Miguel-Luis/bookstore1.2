@@ -3,11 +3,15 @@
 @section('title', 'Books')
 
 @section('content')
-    <div class="row">
-        <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
-            <i class="material-icons">add</i>
-        </a>
-    </div>
+    @if (Route::has('login'))
+        @auth
+            <div class="row">
+                <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
+        @endauth
+    @endif
     <div class="row">
         @foreach ($books as $book)
             <div class="card large col s12 m6 l4 xl3">

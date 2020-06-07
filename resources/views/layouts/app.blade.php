@@ -41,6 +41,16 @@
                             </form>
                         </ul>
 
+                        {{-- Home --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/">
+                                    Home
+                                    <i class="material-icons left">home</i>
+                                </a>
+                            </li>
+                        </ul>
+
                         {{-- Estadisticas --}}
                         <ul class="left hide-on-med-and-down">
                             <li class="orange darken-1">
@@ -77,6 +87,16 @@
                                 <a href="/register">
                                     Registro
                                     <i class="material-icons left">group_add</i>
+                                </a>
+                            </li>
+                        </ul>
+
+                        {{-- Home --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/">
+                                    Home
+                                    <i class="material-icons left">home</i>
                                 </a>
                             </li>
                         </ul>

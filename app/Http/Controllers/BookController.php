@@ -121,14 +121,21 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $book->fill($request->except('image'));
+        $book = Book::find($book->id);
 
         if($request->hasFile('image')) {
+            $file_path = public_path().'/images/'.$book->book_image;
+            \File::delete($file_path);
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $book->book_image = $name;
             $file->move(public_path().'/images/', $name);
         }
+
+        $book->book_name = $request->post('name');
+        $book->book_author = $request->post('author');
+        $book->book_description = $request->post('description');
+        $book->category_id = $request->post('category');
 
         $book->save();
 

@@ -21,16 +21,16 @@ Route::get('/', 'BookController@index');
 Route::get('/book/{book}', 'BookController@show');
 
 // Create
-Route::get('/category/{category}/books/create', 'BookController@create');
-Route::get('/create', 'BookController@creater');
-Route::post('/book/create', 'BookController@store');
+Route::get('/category/{category}/books/create', 'BookController@create')->middleware('auth');
+Route::get('/create', 'BookController@creater')->middleware('auth');
+Route::post('/book/create', 'BookController@store')->middleware('auth');
 
 // Edit
-Route::get('/book/{book}/edit', 'BookController@edit');
-Route::put('/book/edit/{book}', 'BookController@update');
+Route::get('/book/{book}/edit', 'BookController@edit')->middleware('auth');
+Route::put('/book/edit/{book}', 'BookController@update')->middleware('auth');
 
 // Delete
-Route::delete('/book/{book}/delete', 'BookController@destroy')->name('book.destroy');
+Route::delete('/book/{book}/delete', 'BookController@destroy')->name('book.destroy')->middleware('auth');
 
 /* ------------------------------------------------------------------------ */
 

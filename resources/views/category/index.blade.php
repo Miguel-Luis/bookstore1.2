@@ -43,17 +43,18 @@
                             </a>
                         </td>
                         <td>
-                            <a href="#eliminar" title="Eliminar"
-                            class="waves-effect waves-light btn modal-trigger btn-floating btn-large deep-orange darken-4">
-                                <i class="material-icons">delete</i>
-                            </a>
+                            <strong id="{{$category->id}}">
+                                <button data-target="eliminar" class="waves-effect waves-light btn modal-trigger btn-floating btn-large deep-orange darken-4 modal-trigger">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </strong>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         <!-- Modal Structure -->
-        <form action="{{route('category.destroy', $category)}}" method="POST">
+        <form action="{{route('category.destroy', 'text')}}" method="POST">
             @csrf
             @method('DELETE')
             <div id="eliminar" class="modal" style="width: 30%; height: 45%; border-radius: 15px;">
@@ -61,6 +62,7 @@
                     <i class="material-icons large" style="color: #e57373">error_outline</i>
                     <h4 style="color: gray">¿Eliminar?</h4>
                     <p style="color: gray">Borraras la categoria...</p>
+                    <input type="hidden" name="category_id" id="category_id">
                 </div>
                 <div class="modal-footer">
                     <div class="center-align">
@@ -73,4 +75,19 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("strong").click(function(e){
+                e.preventDefault();
+                var id = $(this).attr('id');
+                $("input[name=category_id]").val(id);
+                var instance = M.Modal.getInstance(eliminar);
+                instance.open();
+            })
+        })
+    </script>
 @endsection

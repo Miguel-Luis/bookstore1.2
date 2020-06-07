@@ -109,13 +109,14 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, $id)
     {
-        /* $category->books()->delete();
+        $id = $request->post('category_id');
+        $category = Category::find($id);
+
+        $category->books()->delete();
         $category->delete();
 
-        return back(); */
-
-        return $category;
+        return back();
     }
 }

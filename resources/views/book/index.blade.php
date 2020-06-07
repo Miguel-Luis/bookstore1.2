@@ -42,7 +42,6 @@
                                             <i class="material-icons">delete</i>
                                         </button>
                                     </strong>
-                                    {{-- <li><a id="10">Manuel</a></li> --}}
                                 </div>
                             @else
                                 <p><a href="/book/{{$book->id}}">Ver más...</a></p>
@@ -82,15 +81,18 @@
         </div>
     </form>
 @endsection
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-        $("strong").click(function(e){
-            e.preventDefault();
-            var id = $(this).attr('id');
-            $("input[name=book_id]").val(id);
-            var instance = M.Modal.getInstance(eliminar);
-            instance.open();
+
+@section('scripts')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("strong").click(function(e){
+                e.preventDefault();
+                var id = $(this).attr('id');
+                $("input[name=book_id]").val(id);
+                var instance = M.Modal.getInstance(eliminar);
+                instance.open();
+            })
         })
-    })
-</script>
+    </script>
+@endsection

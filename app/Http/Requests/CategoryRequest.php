@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'description' => ['required', 'min:20'],
+            'description' => ['required', 'max:255'],
             'priority' => ['required', 'integer']
         ];
     }
@@ -39,7 +39,8 @@ class CategoryRequest extends FormRequest
     {
         return[
             'name.required' => 'Debes ingresar tu nombre',
-            'description.required' => 'Debes ingresar al menos 20 caracteres',
+            'description.required' => 'Ingresa una descripción',
+            'description.max' => 'Debes ingresar menos de 255 caracteres',
             'priority.required' => 'Debes elegir un numero para la prioridad'
         ];
     }

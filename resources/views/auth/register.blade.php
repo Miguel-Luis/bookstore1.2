@@ -1,8 +1,11 @@
 @extends('layouts.auth')
 
 @section('content')
+    <div class="container">
+
+    </div>
     <div class="row">
-        <div class="col s12 m4 offset-m4">
+        <div class="col s12 m12 l9 xl6 offset-l2 offset-xl3">
             <div class="card">
                 <div class="card-action center-align white text">
                     <h3>Register</h3>

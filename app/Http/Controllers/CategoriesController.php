@@ -57,15 +57,21 @@ class CategoriesController extends Controller
      */
     public function show(Category $category)
     {
+        $aleatorio = rand(1, 5);
+
         return view('category.show', [
-            'category' => $category
+            'category' => $category,
+            'pordefecto' => 'pordefecto'.$aleatorio
         ]);
     }
 
     public function showtables(Category $category)
     {
+        $aleatorio = rand(1, 5);
+
         return view('category.showtables', [
-            'category' => $category
+            'category' => $category,
+            'pordefecto' => 'pordefecto'.$aleatorio
         ]);
     }
 

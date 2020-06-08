@@ -23,8 +23,11 @@ class BookController extends Controller
                 ->orderBy('books.book_name')
                 ->get();
 
+        $aleatorio = rand(1, 5);
+
         return view('book.index', [
-            'books' => $book
+            'books' => $book,
+            'pordefecto' => 'pordefecto'.$aleatorio
         ]);
     }
 
@@ -63,6 +66,8 @@ class BookController extends Controller
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
+        } else {
+            $name = 'pordefecto';
         }
 
         $book = new Book();
@@ -91,8 +96,11 @@ class BookController extends Controller
                 ->where('books.id', '=', $book->id)
                 ->get();
 
+        $aleatorio = rand(1, 5);
+
         return view('book.show', [
-            'book' => $book
+            'book' => $book,
+            'pordefecto' => 'pordefecto'.$aleatorio
         ]);
     }
 

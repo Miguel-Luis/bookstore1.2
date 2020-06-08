@@ -8,7 +8,11 @@
         <h2 class="header center-align">{{$book[0]->book_name}}</h2>
         <div class="card horizontal">
             <div class="card-image" >
-                <img class="activador materialboxed" width="650" src="../images/{{$book[0]->book_image}}">
+                @if ($book[0]->book_image == 'pordefecto')
+                    <img class="activador materialboxed" width="650" src="../images/{{$pordefecto}}.jpg">
+                @else
+                    <img class="activador materialboxed" width="650" src="../images/{{$book[0]->book_image}}">
+                @endif
             </div>
             <div class="card-stacked">
                 <div class="card-content">

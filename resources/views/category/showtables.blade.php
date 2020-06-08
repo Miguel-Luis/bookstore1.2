@@ -31,7 +31,13 @@
                         <td>{{$book->book_author}}</td>
                         <td>{{$book->book_description}}</td>
                         <td>{{$category->name}}</td>
-                        <td><img src="/images/{{$book->book_image}}" width="70" height="100"></td>
+                        <td>
+                            @if ($book->book_image == 'pordefecto')
+                                <img src="/images/{{$pordefecto}}.jpg" width="70" height="100">
+                            @else
+                                <img src="/images/{{$book->book_image}}" width="70" height="100">
+                            @endif
+                        </td>
                         <td>
                             <a href="/book/{{$book->id}}" title="Mostrar"
                             class="waves-effect waves-light btn-floating btn-large green darken-3">

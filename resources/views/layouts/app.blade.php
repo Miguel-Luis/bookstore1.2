@@ -70,6 +70,15 @@
                                 </a>
                             </li>
                         </ul>
+                        {{-- Tabla Categorias --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/users">
+                                    Usuarios
+                                    <i class="material-icons left">group_add</i>
+                                </a>
+                            </li>
+                        </ul>
                     @else
                         {{-- Login --}}
                         <ul class="left hide-on-med-and-down">
@@ -121,24 +130,71 @@
                 </ul>
                 {{----------------------------------------- Fin Elementos ----------------------------------------}}
 
-                 {{---------------------------------------- Menu hamburguesa -------------------------------------}}
-                 <ul id="slide-out" class="sidenav">
+                {{---------------------------------------- Menu hamburguesa -------------------------------------}}
+                <ul id="slide-out" class="sidenav">
                     <h2 class="header center-align orange darken-1">Menu</h2>
                     <li><div class="divider"></div></li>
+
+                    @if(Route::has('login'))
+                        @auth
+                            {{-- Usuario --}}
+                            <li class="orange darken-1">
+                                <a class="dropdown-trigger" data-target="dropdow-usuario-hamburguesa" href="#">
+                                    <i class="material-icons left">account_circle</i>
+                                    {{ Auth::user()->name }}
+                                    <i class="material-icons right">arrow_drop_down</i>
+                                </a>
+                            </li>
+
+                            {{-- Elementos Usuario --}}
+                            <ul id="dropdow-usuario-hamburguesa" class="dropdown-content">
+                                <form method="POST" action="{{route('logout')}}">
+                                    {{ csrf_field() }}
+                                    <button class="waves-effect waves-light btn deep-orange accent-4">Logout</button>
+                                </form>
+                            </ul>
+
+                            {{-- Home --}}
+                            <li class="orange darken-1">
+                                <a href="/">
+                                    Home
+                                    <i class="material-icons left">home</i>
+                                </a>
+                            </li>
+
+                            {{-- Estadisticas --}}
+                            <li class="orange darken-1">
+                                <a href="/statistics">
+                                    Estadisticas
+                                    <i class="material-icons left">trending_up</i>
+                                </a>
+                            </li>
+
+                            {{-- Tabla Categorias --}}
+                            <li class="orange darken-1">
+                                <a href="/category">
+                                    Tablas
+                                    <i class="material-icons left">grid_on</i>
+                                </a>
+                            </li>
+                        @else
+
+                        @endauth
+                    @endif
+
                     <li class="orange darken-1">
                         <a class="dropdown-trigger" data-target="dropdow-menu-hamburguesa">
                             Categorias
                             <i class="material-icons right">arrow_drop_down</i>
                         </a>
                     </li>
+
                     {{-- Categorias --}}
                     <ul id="dropdow-menu-hamburguesa" class="dropdown-content">
                         @foreach ($categories as $category)
                             <li><a href="/category/{{$category->id}}">{{$category->name}}</a></li>
                         @endforeach
                     </ul>
-                    <li><div class="divider"></div></li>
-                    <a onclick="M.toast({html: 'I am a toast'})" class="btn">Toast!</a>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 {{-- ------------------------------------------------------------------------------------------- --}}

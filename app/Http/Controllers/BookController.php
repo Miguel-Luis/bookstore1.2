@@ -77,7 +77,8 @@ class BookController extends Controller
         $book->category_id = $request->post('category');
         $book->book_image = $name;
 
-        $book->sendEmail($book, 'Se creo este libro:'); // Enviar email
+
+        $book->sendEmail($book, 'creo este libro:'); // Enviar email
 
         $book->save();
 
@@ -148,7 +149,7 @@ class BookController extends Controller
         $book->book_description = $request->post('description');
         $book->category_id = $request->post('category');
 
-        $book->sendEmail($book, 'Se edito este libro:'); // Enviar email
+        $book->sendEmail($book, 'edito este libro:'); // Enviar email
 
         $book->save();
 
@@ -171,15 +172,14 @@ class BookController extends Controller
             \File::delete($file_path);
         }
 
-        $book->sendEmail($book, 'Se elimino este libro:'); // Enviar email
+        $book->sendEmail($book, 'elimino este libro:'); // Enviar email
 
         $book->delete();
         return back();
     }
 
     public function sendEmail(Book $book) {
-        Mail::to('luis.380171120858@ucaldas.edu.co')
-        ->send(new BookReport($book, $titulo));
+        $book->sendEmail($book, 'envio este libro:'); // Enviar email
 
         return back();
     }

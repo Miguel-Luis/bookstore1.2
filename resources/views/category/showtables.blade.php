@@ -51,10 +51,11 @@
                             </a>
                         </td>
                         <td>
-                            <a href="#eliminar" title="Eliminar"
-                            class="waves-effect waves-light btn modal-trigger btn-floating btn-large deep-orange darken-4">
-                                <i class="material-icons">delete</i>
-                            </a>
+                            <strong id="{{$book->id}}">
+                                <button data-target="eliminar" class="waves-effect waves-light btn modal-trigger btn-floating btn-large deep-orange darken-4 modal-trigger">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </strong>
                         </td>
                     </tr>
                 @endforeach
@@ -62,7 +63,7 @@
         </thead>
     </table>
     <!-- Modal Structure -->
-    <form action="{{route('book.destroy',  $book ?? '')}}" method="POST">
+    <form action="{{route('book.destroy',  'text')}}" method="POST">
         @csrf
         @method('DELETE')
         <div id="eliminar" class="modal" style="width: 30%; height: 45%; border-radius: 15px;">
@@ -70,6 +71,7 @@
                 <i class="material-icons large" style="color: #e57373">error_outline</i>
                 <h4 style="color: gray">¿Eliminar?</h4>
                 <p style="color: gray">Borraras el libro...</p>
+                <input type="hidden" name="book_id" id="book_id">
             </div>
             <div class="modal-footer">
                 <div class="center-align">
@@ -81,4 +83,19 @@
             </div>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("strong").click(function(e){
+                e.preventDefault();
+                var id = $(this).attr('id');
+                $("input[name=book_id]").val(id);
+                var instance = M.Modal.getInstance(eliminar);
+                instance.open();
+            })
+        })
+    </script>
 @endsection

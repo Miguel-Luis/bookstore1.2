@@ -32,6 +32,8 @@ Route::put('/book/edit/{book}', 'BookController@update')->middleware('auth');
 // Delete
 Route::delete('/book/{book}/delete', 'BookController@destroy')->name('book.destroy')->middleware('auth');
 
+// Send
+Route::post('/book/{book}/sendEmail', 'BookController@sendEmail')->name('book.sendEmail');
 /* ------------------------------------------------------------------------ */
 
 /* |------------------------------ Category ------------------------------| */

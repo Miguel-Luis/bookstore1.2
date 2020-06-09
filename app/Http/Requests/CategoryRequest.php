@@ -38,7 +38,7 @@ class CategoryRequest extends FormRequest
     public function messages()
     {
         return[
-            'name.required' => 'Debes ingresar tu nombre',
+            'name.required' => 'Debes ingresar un nombre',
             'description.required' => 'Ingresa una descripción',
             'description.max' => 'Debes ingresar menos de 255 caracteres',
             'priority.required' => 'Debes elegir un numero para la prioridad'

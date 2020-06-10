@@ -61,21 +61,25 @@
                             </li>
                         </ul>
 
-                         {{-- Tabla Categorias --}}
-                         <ul class="left hide-on-med-and-down">
-                            <li class="orange darken-1">
-                                <a href="/category">
+                        {{-- Tablas --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li>
+                                <a class="dropdown-trigger" data-target="dropdow-tablas" href="#">
                                     Tablas
                                     <i class="material-icons left">grid_on</i>
                                 </a>
                             </li>
                         </ul>
-                        {{-- Tabla Categorias --}}
-                        <ul class="left hide-on-med-and-down">
-                            <li class="orange darken-1">
+
+                        <ul id="dropdow-tablas" class="dropdown-content">
+                            <li>
+                                <a href="/category">
+                                    Categorias
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/users">
                                     Usuarios
-                                    <i class="material-icons left">group_add</i>
                                 </a>
                             </li>
                         </ul>
@@ -86,16 +90,6 @@
                                 <a href="/login">
                                     Login
                                     <i class="material-icons left">account_circle</i>
-                                </a>
-                            </li>
-                        </ul>
-
-                        {{-- Registro --}}
-                        <ul class="left hide-on-med-and-down">
-                            <li class="orange darken-1">
-                                <a href="/register">
-                                    Registro
-                                    <i class="material-icons left">group_add</i>
                                 </a>
                             </li>
                         </ul>
@@ -128,6 +122,17 @@
                         <li><a href="/category/show/{{$category->id}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
+
+                <ul class="left hide-on-med-and-down">
+                    <li>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" id="buscar" class="autocomplete">
+                            <label for="buscar">Buscar</label>
+                        </div>
+                    </li>
+                </ul>
+
                 {{----------------------------------------- Fin Elementos ----------------------------------------}}
 
                 {{---------------------------------------- Menu hamburguesa -------------------------------------}}

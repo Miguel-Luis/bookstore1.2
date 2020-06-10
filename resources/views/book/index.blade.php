@@ -67,6 +67,8 @@
             </div>
         @endforeach
     </div>
+
+    {{-- Modal --}}
     @include('custom.deletebook')
 @endsection
 

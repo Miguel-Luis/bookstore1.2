@@ -77,10 +77,9 @@ class BookController extends Controller
         $book->category_id = $request->post('category');
         $book->book_image = $name;
 
+        $book->save();
 
         $book->sendEmail($book, 'creo este libro:'); // Enviar email
-
-        $book->save();
 
         return redirect('/');
     }
@@ -149,9 +148,9 @@ class BookController extends Controller
         $book->book_description = $request->post('description');
         $book->category_id = $request->post('category');
 
-        $book->sendEmail($book, 'edito este libro:'); // Enviar email
-
         $book->save();
+
+        $book->sendEmail($book, 'edito este libro:'); // Enviar email
 
         return redirect('/category/show/tables/'.$book->category_id);
     }
@@ -172,9 +171,9 @@ class BookController extends Controller
             \File::delete($file_path);
         }
 
+        $book->delete();
         $book->sendEmail($book, 'elimino este libro:'); // Enviar email
 
-        $book->delete();
         return back();
     }
 
@@ -182,5 +181,12 @@ class BookController extends Controller
         $book->sendEmail($book, 'envio este libro:'); // Enviar email
 
         return back();
+    }
+
+    public function listar() {
+        $books = Book::query()
+                 ->select(['book_name'])
+                 ->get();
+        return $books;
     }
 }

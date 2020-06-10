@@ -5,10 +5,22 @@
 @section('content')
     @if (Route::has('login'))
         @auth
+            {{-- Buscador --}}
             <div class="row">
-                <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
-                    <i class="material-icons">add</i>
-                </a>
+                <div class="col s9">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" id="buscar" class="autocomplete">
+                            <label for="buscar">Buscar</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s3">
+                    <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
             </div>
         @endauth
     @endif
@@ -82,7 +94,27 @@
                 $("input[name=book_id]").val(id);
                 var instance = M.Modal.getInstance(eliminar);
                 instance.open();
-            })
-        })
+            });
+        });
+
+        function bindData (data) {
+            $('input.autocomplete').autocomplete({
+                data: data
+            });
+        }
+
+        $(document).ready(function(){
+            const compatibleData = {};
+
+            fetch('/list')
+            .then(data => data.json())
+            .then(data=> {
+                data.forEach(element => {
+                        compatibleData[element["book_name"]] = null;
+                });
+
+                bindData(compatibleData);
+            });
+        });
     </script>
 @endsection

@@ -38,6 +38,9 @@ Route::delete('/book/{book}/delete', 'BookController@destroy')->name('book.destr
 
 // Send
 Route::post('/book/{book}/sendEmail', 'BookController@sendEmail')->name('book.sendEmail');
+
+// List
+Route::get('/list', 'BookController@listar');
 /* ------------------------------------------------------------------------ */
 
 /* |------------------------------ Category ------------------------------| */

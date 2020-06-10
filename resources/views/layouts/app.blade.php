@@ -123,16 +123,6 @@
                     @endforeach
                 </ul>
 
-                <ul class="left hide-on-med-and-down">
-                    <li>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">search</i>
-                            <input type="text" id="buscar" class="autocomplete">
-                            <label for="buscar">Buscar</label>
-                        </div>
-                    </li>
-                </ul>
-
                 {{----------------------------------------- Fin Elementos ----------------------------------------}}
 
                 {{---------------------------------------- Menu hamburguesa -------------------------------------}}

@@ -72,7 +72,7 @@
                         </a>
 
                         {{-- Cancelar --}}
-                        <a href="/category" title="Cancelar"
+                        <a href="@if ($category === 0) / @else /category/show/tables/{{$category}} @endif" title="Cancelar"
                         class="waves-effect waves-light btn modal-trigger btn-floating btn-large deep-orange darken-4 right">
                             <i class="material-icons">cancel</i>
                         </a>

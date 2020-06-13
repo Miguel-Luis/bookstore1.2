@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bookstore - @yield('title')</title>
+    <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -165,13 +166,26 @@
                                 </a>
                             </li>
 
-                            {{-- Tabla Categorias --}}
+                            {{-- Tablas --}}
                             <li class="orange darken-1">
-                                <a href="/category">
+                                <a class="dropdown-trigger" data-target="dropdow-tablas-hamburguesa" href="#">
                                     Tablas
                                     <i class="material-icons left">grid_on</i>
                                 </a>
                             </li>
+
+                            <ul id="dropdow-tablas-hamburguesa" class="dropdown-content">
+                                <li>
+                                    <a href="/category">
+                                        Categorias
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/users">
+                                        Usuarios
+                                    </a>
+                                </li>
+                            </ul>
                         @else
 
                         @endauth

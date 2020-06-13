@@ -15,7 +15,7 @@ function bindData (data) {
         data: data,
         onAutocomplete: function(text) {
             /* alert(`Diste clic ${texto}`); */
-            location.href=`/list/${texto}/find`;
+            location.href=`/list/${text}`;
         }
     });
 }

@@ -191,6 +191,17 @@ class BookController extends Controller
     }
 
     public function listarbusqueda($text) {
-        return $text;
+        $book = DB::table('categories')
+                ->select('books.book_name', 'books.book_author', 'books.book_description', 'categories.name', 'categories.id', 'books.book_image')
+                ->join('books', 'categories.id', 'books.category_id')
+                ->where('books.book_name', '=', $text)
+                ->get();
+
+        $aleatorio = rand(1, 5);
+
+        return view('book.show', [
+            'book' => $book,
+            'pordefecto' => 'pordefecto'.$aleatorio
+        ]);
     }
 }

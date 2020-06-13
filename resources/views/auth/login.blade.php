@@ -38,9 +38,6 @@
                         <div class="form-field">
                             <button class="btn-large waves-effect waves-dark" style="width: 100%;">Login</button>
                         </div><br>
-                        <div class="form-field center-align">
-                            <strong><a href="/register">Resgister</a></strong>
-                        </div>
                     </div>
                 </form>
             </div>

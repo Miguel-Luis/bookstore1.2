@@ -41,7 +41,7 @@ Route::post('/book/{book}/sendEmail', 'BookController@sendEmail')->name('book.se
 
 // List
 Route::get('/list', 'BookController@listar');
-Route::get('/list/{text}/find', 'BookController@listarbusqueda');
+Route::get('/list/{text}', 'BookController@listarbusqueda');
 /* ------------------------------------------------------------------------ */
 
 /* |------------------------------ Category ------------------------------| */
@@ -85,15 +85,4 @@ Route::get('/login', function() {
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-
-// Register
-Route::get('/register', function() {
-    if(Auth::check()) {
-        return redirect('/');
-    } else {
-        return view('auth.register');
-    }
-});
-
-Route::post('/register', 'Auth\RegisterController@register')->name('register');
 /* -------------------------------------------------------------------------- */

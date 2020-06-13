@@ -3,27 +3,28 @@
 @section('title', 'Books')
 
 @section('content')
-    @if (Route::has('login'))
-        @auth
-            {{-- Buscador --}}
+    {{-- Buscador --}}
+    <div class="row">
+        <div class="col s9">
             <div class="row">
-                <div class="col s9">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">search</i>
-                            <input type="text" id="buscar" class="autocomplete">
-                            <label for="buscar">Buscar</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
-                        <i class="material-icons">add</i>
-                    </a>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text" id="buscar" class="autocomplete">
+                    <label for="buscar">Buscar</label>
                 </div>
             </div>
+        </div>
+    @if (Route::has('login'))
+        @auth
+            <div class="col s3">
+                <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
+                    <i class="material-icons">add</i>
+                </a>
+                </div>
+
         @endauth
     @endif
+    </div>
     <div class="row">
         @foreach ($books as $book)
             <div class="card large col s12 m6 l4 xl3">

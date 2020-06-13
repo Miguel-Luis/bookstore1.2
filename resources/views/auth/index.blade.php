@@ -46,21 +46,11 @@
         </table>
 
         {{-- Modal --}}
-        @include('custom.deleteuser')
+        @include('custom.usermodals.deleteuser')
     </div>
 @endsection
 
 @section('scripts')
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $("strong").click(function(e){
-                e.preventDefault();
-                var id = $(this).attr('id');
-                $("input[name=category_id]").val(id);
-                var instance = M.Modal.getInstance(eliminar);
-                instance.open();
-            })
-        })
-    </script>
+    <script type="text/javascript" src="{{asset('js/openmodal.js')}}"></script>
 @endsection

@@ -2,29 +2,6 @@
 
 @section('title', 'Statistics')
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    var analytics = <?php echo $category; ?>;
-
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-
-        var data = google.visualization.arrayToDataTable(analytics);
-
-        var options = {
-            title: 'Cantidad de libros por categoria',
-            width: 1000,
-            height: 1000
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('category'));
-
-        chart.draw(data, options);
-    }
-</script>
-
 @section('content')
     <a href="/"><i title="Regresar" class="small material-icons left">arrow_back</i></a>
     <div class="col s12">
@@ -42,4 +19,29 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        var analytics = <?php echo $category; ?>;
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(analytics);
+
+            var options = {
+                title: 'Cantidad de libros por categoria',
+                width: 1000,
+                height: 1000
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('category'));
+
+            chart.draw(data, options);
+        }
+    </script>
 @endsection

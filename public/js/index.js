@@ -1,3 +1,4 @@
+// Abrir modal eliminar
 $(function(){
     $("strong").click(function(e){
         e.preventDefault();
@@ -8,6 +9,7 @@ $(function(){
     });
 });
 
+// Funcion de autocompletado
 function bindData (data) {
     $('input.autocomplete').autocomplete({
         data: data,
@@ -18,6 +20,7 @@ function bindData (data) {
     });
 }
 
+// Obtener todos los libros
 $(document).ready(function(){
     const compatibleData = {};
 

@@ -13,7 +13,7 @@
                         <div class="row">
                             {{-- Name --}}
                             <div class="input-field col s12 m12 l6">
-                                <input id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
+                                <input data-length="255" id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
                                 <label for="name">Nombre</label>
                                 {!! $errors->first('name', '<span class="help-block red-text">:message</span>') !!}
 
@@ -21,7 +21,7 @@
 
                             {{-- Author --}}
                             <div class="input-field col s12 m12 l6">
-                                <input id="author" type="text" class="validate {{ $errors->has('author') ? 'invalid ' : '' }}" name="author" value="{{ old('author') }}">
+                                <input data-length="255" id="author" type="text" class="validate {{ $errors->has('author') ? 'invalid ' : '' }}" name="author" value="{{ old('author') }}">
                                 <label for="author">Autor</label>
                             </div>
                             {!! $errors->first('author', '<span class="help-block red-text">:message</span>') !!}
@@ -30,7 +30,7 @@
                         {{-- Description --}}
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea data-length="2500" id="description" class="materialize-textarea validate {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
+                                <textarea data-length="1000" id="description" class="materialize-textarea validate {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
                                 <label for="description">Descripción</label>
                             </div>
                             {!! $errors->first('description', '<span class="help-block red-text">:message</span>') !!}

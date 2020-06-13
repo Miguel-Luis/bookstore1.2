@@ -14,7 +14,7 @@
                             {{-- Name --}}
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
+                                    <input data-length="255" id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
                                     <label for="name">Nombre</label>
                                 </div>
                                 {!! $errors->first('name', '<span class="help-block red-text">:message</span>') !!}

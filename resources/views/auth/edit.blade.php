@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('title', 'Edit')
 
@@ -19,7 +19,7 @@
                         {{-- Name --}}
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" name="name" id="name" @error('name') is-invalid @enderror  value="{{ old('name', $user->name) }}">
+                            <input data-length="255" type="text" name="name" id="name" @error('name') is-invalid @enderror  value="{{ old('name', $user->name) }}">
                             <label for="name">Name</label>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                         {{-- Email --}}
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" name="email" id="email" @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}">
+                            <input data-length="255" type="email" name="email" id="email" @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}">
                             <label for="email">Email</label>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                         {{-- Password --}}
                         <div class="input-field">
                             <i class="material-icons prefix">vpn_key</i>
-                            <input type="password" name="password" id="password" @error('password') is-invalid @enderror">
+                            <input data-length="255" type="password" name="password" id="password" @error('password') is-invalid @enderror">
                             <label for="password">Password</label>
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -66,4 +66,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{{asset('js/forms.js')}}"></script>
 @endsection

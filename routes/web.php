@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* |--------------------------------- User -------------------------------| */
+
 Route::resource('/users', 'UserController')->middleware('auth');
 /* ------------------------------------------------------------------------ */
 

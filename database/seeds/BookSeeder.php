@@ -109,6 +109,14 @@ class BookSeeder extends Seeder
             'book_image' => 'inteligenciamatematica.jpg'
         ]);
 
+        DB::table('books')->insert([
+            'book_name' => 'Harry Potter y el Prisionero de Azkaban',
+            'book_author' => 'Joanne Kathleen Rowling',
+            'book_description' => 'Harry Potter y el prisionero de Azkaban es el tercero de los siete libros escritos de la serie Harry Potter, por J. K. Rowling. ... La trama del libro describe que un peligroso asesino, Sirius Black, se escapó de Azkaban, la prisión de los magos, y al parecer está dispuesto a encontrar y matar a Harry.',
+            'category_id' => 1,
+            'book_image' => 'harrypotteryelprisionerodeazkaban.jpg'
+        ]);
+
         /*
         Plantilla:
         DB::table('books')->insert([

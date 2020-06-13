@@ -17,13 +17,19 @@
             <div class="card-stacked">
                 <div class="card-content">
                     @if(Route::has('login'))
-                      @auth
-                        <form action="{{route('book.sendEmail', $book[0]->id)}}" method="POST">
-                            @csrf
-                            <button data-target="enviar" title="Enviar correo" type="input"
-                                class="waves-effect waves-light btn modal-trigger btn-floating btn-medium amber darken-2 modal-trigger">
+                        @auth
+                            <form action="{{route('book.sendEmail', $id)}}" method="POST">
+                                @csrf
+                                {{-- Enviar --}}
+                                <a href="#enviar" title="Enviar"
+                                class="waves-effect waves-light btn modal-trigger btn-floating btn-medium amber darken-2">
                                     <i class="material-icons">send</i>
-                                </button>
+                                </a>
+
+                                <ul>
+                                    {{-- Modal --}}
+                                    @include('custom.bookmodals.sendbook')
+                                </ul>
                             </form>
                         @endauth
                     @endif

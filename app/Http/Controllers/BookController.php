@@ -92,6 +92,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
+        $id = $book->id;
         $book = DB::table('categories')
                 ->select('books.book_name', 'books.book_author', 'books.book_description', 'categories.name', 'categories.id', 'books.book_image')
                 ->join('books', 'categories.id', 'books.category_id')
@@ -102,6 +103,7 @@ class BookController extends Controller
 
         return view('book.show', [
             'book' => $book,
+            'id' => $id,
             'pordefecto' => 'pordefecto'.$aleatorio
         ]);
     }

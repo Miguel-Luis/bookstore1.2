@@ -12,7 +12,7 @@
                     <div class="card-content">
                         <div class="row">
                             {{-- Name --}}
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m12 l6">
                                 <input id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
                                 <label for="name">Nombre</label>
                                 {!! $errors->first('name', '<span class="help-block red-text">:message</span>') !!}
@@ -20,7 +20,7 @@
                             </div>
 
                             {{-- Author --}}
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m12 l6">
                                 <input id="author" type="text" class="validate {{ $errors->has('author') ? 'invalid ' : '' }}" name="author" value="{{ old('author') }}">
                                 <label for="author">Autor</label>
                             </div>
@@ -38,7 +38,7 @@
 
                         <div class="row">
                             {{-- Category --}}
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 m12 l6">
                                 <select id="category" name="category">
                                     <option value="" disabled selected>Elige una categoria</option>
                                     @foreach ($categories as $option)
@@ -49,7 +49,7 @@
                             </div>
 
                             {{-- Imagen --}}
-                            <div class="col s6">
+                            <div class="col s12 m12 l6">
                                 <div class = "file-field input-field">
                                     <div class = "btn blue lighten-1 left">
                                         <span>Cargar</span>

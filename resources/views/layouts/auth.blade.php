@@ -38,8 +38,6 @@
         @yield('content')
     </div>
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 </body>

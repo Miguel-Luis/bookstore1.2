@@ -20,8 +20,7 @@
                 <a href="/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
                     <i class="material-icons">add</i>
                 </a>
-                </div>
-
+            </div>
         @endauth
     @endif
     </div>
@@ -40,34 +39,34 @@
                     <p>Libro {{$book->name}}</p>
                     <div class="card-action">
                         <div class="row">
-                        @if (Route::has('login'))
-                            @auth
-                                {{-- Mostrar --}}
-                                <div id="talbe" class="col s4">
-                                    <a href="/book/{{$book->id}}" title="Mostrar"
-                                    class="waves-effect waves-light btn-floating btn-small green darken-3">
-                                        <i class="material-icons">remove_red_eye</i>
-                                    </a>
-                                </div>
-                                {{-- Editar --}}
-                                <div class="col s4">
-                                    <a href="/book/{{$book->id}}/edit" title="Editar"
-                                    class="waves-effect waves-light btn-floating btn-small amber accent-3">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                </div>
-                                {{-- Eliminar --}}
-                                <div class="col s4">
-                                    <strong id="{{$book->id}}">
-                                        <button data-target="eliminar" class="waves-effect waves-light btn modal-trigger btn-floating btn-small deep-orange darken-4 modal-trigger">
-                                            <i class="material-icons">delete</i>
-                                        </button>
-                                    </strong>
-                                </div>
-                            @else
-                                <p><a href="/book/{{$book->id}}">Ver más...</a></p>
-                            @endauth
-                        @endif
+                            @if (Route::has('login'))
+                                @auth
+                                    {{-- Mostrar --}}
+                                    <div id="talbe" class="col s4">
+                                        <a href="/book/{{$book->id}}" title="Mostrar"
+                                        class="waves-effect waves-light btn-floating btn-small green darken-3">
+                                            <i class="material-icons">remove_red_eye</i>
+                                        </a>
+                                    </div>
+                                    {{-- Editar --}}
+                                    <div class="col s4">
+                                        <a href="/book/{{$book->id}}/edit" title="Editar"
+                                        class="waves-effect waves-light btn-floating btn-small amber accent-3">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                    </div>
+                                    {{-- Eliminar --}}
+                                    <div class="col s4">
+                                        <strong id="{{$book->id}}">
+                                            <button data-target="eliminar" class="waves-effect waves-light btn modal-trigger btn-floating btn-small deep-orange darken-4 modal-trigger">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </strong>
+                                    </div>
+                                @else
+                                    <p><a href="/book/{{$book->id}}">Ver más...</a></p>
+                                @endauth
+                            @endif
                         </div>
                     </div>
                 </div>

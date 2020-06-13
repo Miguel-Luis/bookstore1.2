@@ -4,6 +4,7 @@
 
 @section('content')
     <a href="/category/"><i title="Regresar" class="small material-icons left">arrow_back</i></a>
+
     <a href="/category/{{$category->id}}/books/create" title="Agregar Libro" class="waves-effect waves-light btn-floating btn-large blue lighten-1 right">
         <i class="material-icons">add</i>
     </a>

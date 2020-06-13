@@ -7,9 +7,7 @@
     <div class="col s12">
         <h2 class="header center-align">Estadísticas</h2>
         <div class="card horizontal">
-            <div class="card-image">
-                <div id="category"></div>
-            </div>
+            <div id="category" class="card-image"></div>
             <div class="card-stacked">
                 <div class="card-content">
                     <p>{{$countC}} categorías</p>
@@ -35,8 +33,8 @@
 
             var options = {
                 title: 'Cantidad de libros por categoria',
-                width: 1000,
-                height: 1000
+                width: 650,
+                height: 650
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('category'));

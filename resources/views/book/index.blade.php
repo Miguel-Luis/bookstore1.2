@@ -81,40 +81,10 @@
     </div>
 
     {{-- Modal --}}
-    @include('custom.deletebook')
+    @include('custom.bookmodals.deletebook')
 @endsection
 
 @section('scripts')
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $("strong").click(function(e){
-                e.preventDefault();
-                var id = $(this).attr('id');
-                $("input[name=book_id]").val(id);
-                var instance = M.Modal.getInstance(eliminar);
-                instance.open();
-            });
-        });
-
-        function bindData (data) {
-            $('input.autocomplete').autocomplete({
-                data: data
-            });
-        }
-
-        $(document).ready(function(){
-            const compatibleData = {};
-
-            fetch('/list')
-            .then(data => data.json())
-            .then(data=> {
-                data.forEach(element => {
-                        compatibleData[element["book_name"]] = null;
-                });
-
-                bindData(compatibleData);
-            });
-        });
-    </script>
+    <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
 @endsection

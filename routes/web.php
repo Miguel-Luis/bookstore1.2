@@ -41,6 +41,7 @@ Route::post('/book/{book}/sendEmail', 'BookController@sendEmail')->name('book.se
 
 // List
 Route::get('/list', 'BookController@listar');
+Route::get('/list/{text}/find', 'BookController@listarbusqueda');
 /* ------------------------------------------------------------------------ */
 
 /* |------------------------------ Category ------------------------------| */

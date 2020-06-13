@@ -185,8 +185,12 @@ class BookController extends Controller
 
     public function listar() {
         $books = Book::query()
-                 ->select(['book_name'])
+                 ->select(['book_name', 'book_image'])
                  ->get();
         return $books;
+    }
+
+    public function listarbusqueda($text) {
+        return $text;
     }
 }

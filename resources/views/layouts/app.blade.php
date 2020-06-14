@@ -128,7 +128,7 @@
 
                 {{---------------------------------------- Menu hamburguesa -------------------------------------}}
                 <ul id="slide-out" class="sidenav">
-                    <h2 class="header center-align orange darken-1">Menu</h2>
+                    <h2 class="header center-align orange-text">Menu</h2>
                     <li><div class="divider"></div></li>
 
                     @if(Route::has('login'))
@@ -141,6 +141,7 @@
                                     <i class="material-icons right">arrow_drop_down</i>
                                 </a>
                             </li>
+                            <li><div class="divider"></div></li>
 
                             {{-- Elementos Usuario --}}
                             <ul id="dropdow-usuario-hamburguesa" class="dropdown-content">
@@ -157,6 +158,7 @@
                                     <i class="material-icons left">home</i>
                                 </a>
                             </li>
+                            <li><div class="divider"></div></li>
 
                             {{-- Estadisticas --}}
                             <li>
@@ -165,6 +167,7 @@
                                     <i class="material-icons left">trending_up</i>
                                 </a>
                             </li>
+                            <li><div class="divider"></div></li>
 
                             {{-- Tablas --}}
                             <li>
@@ -173,6 +176,7 @@
                                     <i class="material-icons left">grid_on</i>
                                 </a>
                             </li>
+                            <li><div class="divider"></div></li>
 
                             <ul id="dropdow-tablas-hamburguesa" class="dropdown-content">
                                 <li>
@@ -187,7 +191,23 @@
                                 </li>
                             </ul>
                         @else
+                            {{-- Login --}}
+                            <li>
+                                <a href="/login">
+                                    Login
+                                    <i class="material-icons left">account_circle</i>
+                                </a>
+                            </li>
+                            <li><div class="divider"></div></li>
 
+                            {{-- Home --}}
+                            <li>
+                                <a href="/">
+                                    Home
+                                    <i class="material-icons left">home</i>
+                                </a>
+                            </li>
+                            <li><div class="divider"></div></li>
                         @endauth
                     @endif
 
@@ -197,6 +217,7 @@
                             <i class="material-icons right">arrow_drop_down</i>
                         </a>
                     </li>
+                    <li><div class="divider"></div></li>
 
                     {{-- Categorias --}}
                     <ul id="dropdow-menu-hamburguesa" class="dropdown-content">

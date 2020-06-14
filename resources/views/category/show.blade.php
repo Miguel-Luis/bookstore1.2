@@ -11,12 +11,7 @@
         @endauth
     @endif
     <div class="row">
-        @if (substr($category->name, -1) != 's')
-            <h3 class="header center-align">Libros {{$category->name}}s</h3>
-        @else
-            <h3 class="header center-align">Libros {{$category->name}}</h3>
-        @endif
-
+        <h3 class="header center-align">{{$category->name}}</h3>
         <a href="/"><i class="small material-icons left">arrow_back</i></a>
         <p class="center-align">{{$category->description}}</p>
     </div>

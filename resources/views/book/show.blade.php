@@ -36,6 +36,7 @@
 
                     <p class="center-align"><b>Sinopsis:</b></p>
                     <p>{{$book[0]->book_description}}</p>
+                    <p class="center-align"><b>Autor</b> {{$book[0]->book_author}}</p>
                     <p class="center-align"><b>Categoría:</b> {{$book[0]->name}}</p>
                 </div>
                 <div class="card-action">

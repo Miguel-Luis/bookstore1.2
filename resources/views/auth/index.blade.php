@@ -10,7 +10,7 @@
 
     <h2 class="header center-align">Usuarios</h2>
     <div class="row">
-        <table class="striped">
+        <table class="striped amber lighten-4 centered">
             <thead>
                 <tr>
                     <th>Id</th>

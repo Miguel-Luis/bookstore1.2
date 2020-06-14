@@ -38,7 +38,7 @@
                         <ul id="dropdow-usuario" class="dropdown-content">
                             <form method="POST" action="{{route('logout')}}">
                                 {{ csrf_field() }}
-                                <button class="waves-effect waves-light btn deep-orange accent-4">Logout</button>
+                                <button class="centered waves-effect waves-light btn orange darken-1">Logout</button>
                             </form>
                         </ul>
 
@@ -134,7 +134,7 @@
                     @if(Route::has('login'))
                         @auth
                             {{-- Usuario --}}
-                            <li class="orange darken-1">
+                            <li>
                                 <a class="dropdown-trigger" data-target="dropdow-usuario-hamburguesa" href="#">
                                     <i class="material-icons left">account_circle</i>
                                     {{ Auth::user()->name }}
@@ -146,12 +146,12 @@
                             <ul id="dropdow-usuario-hamburguesa" class="dropdown-content">
                                 <form method="POST" action="{{route('logout')}}">
                                     {{ csrf_field() }}
-                                    <button class="waves-effect waves-light btn deep-orange accent-4">Logout</button>
+                                    <button class="waves-effect waves-light btn orange darken-1">Logout</button>
                                 </form>
                             </ul>
 
                             {{-- Home --}}
-                            <li class="orange darken-1">
+                            <li>
                                 <a href="/">
                                     Home
                                     <i class="material-icons left">home</i>
@@ -159,7 +159,7 @@
                             </li>
 
                             {{-- Estadisticas --}}
-                            <li class="orange darken-1">
+                            <li>
                                 <a href="/statistics">
                                     Estadisticas
                                     <i class="material-icons left">trending_up</i>
@@ -167,7 +167,7 @@
                             </li>
 
                             {{-- Tablas --}}
-                            <li class="orange darken-1">
+                            <li>
                                 <a class="dropdown-trigger" data-target="dropdow-tablas-hamburguesa" href="#">
                                     Tablas
                                     <i class="material-icons left">grid_on</i>
@@ -191,7 +191,7 @@
                         @endauth
                     @endif
 
-                    <li class="orange darken-1">
+                    <li>
                         <a class="dropdown-trigger" data-target="dropdow-menu-hamburguesa">
                             Categorias
                             <i class="material-icons right">arrow_drop_down</i>

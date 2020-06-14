@@ -10,7 +10,7 @@
 
     <h2 class="header center-align">Categorias</h2>
     <div class="row">
-        <table class="striped">
+        <table class="striped amber lighten-4 responsive-table centered">
             <thead>
                 <tr>
                     <th>Id</th>

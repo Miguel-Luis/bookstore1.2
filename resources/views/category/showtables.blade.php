@@ -10,7 +10,7 @@
     </a>
 
     <h2 class="header center-align">{{$category->name}}</h2>
-    <table class="striped">
+    <table class="striped amber lighten-4 responsive-table centered">
         <thead>
             <tr>
                 <th>Id</th>

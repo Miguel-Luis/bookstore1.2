@@ -94,7 +94,7 @@ class BookController extends Controller
     {
         $id = $book->id;
         $book = DB::table('categories')
-                ->select('books.book_name', 'books.book_author', 'books.book_description', 'categories.name', 'categories.id', 'books.book_image')
+                ->select('books.id', 'books.book_name', 'books.book_author', 'books.book_description', 'categories.name', 'categories.id', 'books.book_image')
                 ->join('books', 'categories.id', 'books.category_id')
                 ->where('books.id', '=', $book->id)
                 ->get();
@@ -194,15 +194,22 @@ class BookController extends Controller
 
     public function listarbusqueda($text) {
         $book = DB::table('categories')
-                ->select('books.book_name', 'books.book_author', 'books.book_description', 'categories.name', 'categories.id', 'books.book_image')
+                ->select('books.id', 'books.book_name', 'books.book_author', 'books.book_description', 'categories.name', 'categories.id', 'books.book_image')
                 ->join('books', 'categories.id', 'books.category_id')
                 ->where('books.book_name', '=', $text)
                 ->get();
 
+        $books = Book::query()
+                ->select(['books.id'])
+                ->where('books.book_name', '=', $text)
+                ->get();
+
+        $id = $books[0]->id;
         $aleatorio = rand(1, 5);
 
         return view('book.show', [
             'book' => $book,
+            'id' => $id,
             'pordefecto' => 'pordefecto'.$aleatorio
         ]);
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BookReport;
 use Carbon\Carbon;
+use App\User;
 
 class Book extends Model
 {
@@ -17,7 +18,12 @@ class Book extends Model
 
     public function sendEmail(Book $book, $titulo) {
         $date = Carbon::now();
-        Mail::to('luis.380171120858@ucaldas.edu.co')
-        ->send(new BookReport($book, $titulo, $date));
+
+        $users = User::all();
+
+        foreach($users as $user) {
+            Mail::to($user->email)
+            ->send(new BookReport($book, $titulo, $date));
+        }
     }
 }

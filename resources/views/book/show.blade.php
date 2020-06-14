@@ -21,7 +21,7 @@
                             <form action="{{route('book.sendEmail', $id)}}" method="POST">
                                 @csrf
                                 {{-- Enviar --}}
-                                <a href="#enviar" title="Enviar"
+                                <a href="#enviar" title="Enviar email"
                                 class="waves-effect waves-light btn modal-trigger btn-floating btn-medium amber darken-2">
                                     <i class="material-icons">send</i>
                                 </a>
